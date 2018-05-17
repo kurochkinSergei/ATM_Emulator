@@ -4,22 +4,6 @@ $(document).ready(() => {
         TIME_HEADLINE_FADING = 2000,
         TIME_TEXT_SHOWN = 2000
 
-    checkAtmStatus = () => {
-        $.ajax({
-                url: 'http://10.20.1.21:5000/atm_status',
-            })
-            .done(function(data) {
-                console.log("Ajax was succsessfully sent");
-                console.log(JSON.parse(data).status);
-                if (JSON.parse(data).status == false) {
-                    location = "outofserv.html"
-                }
-            })
-            .fail(function() {
-                console.log("Ajax failed to fetch data")
-            })
-    }
-
     var headlines = document.querySelectorAll('.js-headline'),
         words = document.querySelectorAll('.js-word')
 
@@ -59,8 +43,6 @@ $(document).ready(() => {
     setInterval(() => {
         headlinesTimeline.restart()
     }, totalDuration)
-
-    setInterval(checkAtmStatus, 3000);
 
     $(document).on('click', () => {
         location.href = 'main.html'

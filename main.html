@@ -6,37 +6,42 @@
     <link href="./static/css/common.css" rel="stylesheet" media="screen">
     <link href="./static/css/main.css" rel="stylesheet" media="screen">
 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Rubik+Mono+One" rel="stylesheet">
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="../js/idle-timer.min.js"></script>
     <script type="text/javascript" src="../js/ext-core.js"></script>
+    <script type="text/javascript" src="./static/js/vendor/anime.min.js" async="true"></script>
+    <!-- <script type="text/javascript" src="./static/js/out_of_serv.js" async="true"></script> -->
+    <script type="text/javascript" src="./static/js/main.js" async="true"></script>
 </head>
 
-<body class="gradient-background">
-    <h1 class="">INNOVATION LAB : ATM-F</h1>
+<body class="main-background">
+    <!-- <a href="http://thebank.sas-mic.local/atm/main.html "></a> -->
+    <a href="#" class="atm-name">ATM-F</a>
+
+
+    <img class="watermark-image" src='./static/img/earth.svg'>
+    <!-- <img class="world-picture" src='./static/img/sas_icon_simple.png'> -->
 
     <div class="languages-wrapper">
-        <h2 class="language-select_title">Выберите язык:</h2>
+        <h2 class="language_title js-language-title">Выберите язык:</h2>
+        <h2 class="language_title js-language-title">Select your language:</h2>
 
-        <h2 class="language-select_title">Select your language:</h2>
-
-        <div class="language" onclick="reddir('eng')">
-            <div class="flag shine">
-                <div class="shine"></div>
-                <!-- <img class="language_image" src="./static/img/us_big.svg"> -->
+        <div class="languages">
+            <div class="language js-language" data-lang="eng">
+                <p class="language_name button">English</p>
+                <!-- <img class="language_flag" src="./static/img/us_big.svg"> -->
             </div>
-            <p class="language_title">English</p>
-        </div>
-        <div class="language" onclick="reddir('rus')">
 
-            <img class="language_image" src="./static/img/russia_big.svg ">
-            <p class="language-select-item_title ">Русский</p>
+            <div class="language js-language" data-lang="rus">
+                <p class="language_name button">Русский</p>
+                <!-- <img class="language_flag" src="./static/img/russia_big.svg "> -->
+            </div>
         </div>
     </div>
-    <!-- <a href="http://thebank.sas-mic.local/atm/main.html "> -->
-    <a href="# ">
-        <img src='./static/img/earth.svg'>
-    </a>
 </body>
 
 </html>

@@ -1,13 +1,65 @@
-.flag:before {
-    content: "";
-    position: absolute;
-    width: 250px;
-    height: 250px;
+.atm-name {
+    font-size: 42px;
+    line-height: 42px;
+    font-family: 'Rubik Mono One', sans-serif;
+    color: #f2f2f2;
+    margin: 20px 20px;
+    text-align: left;
+    text-decoration: none;
+    display: block;
+}
+
+.languages-wrapper {
+    user-select: none;
+    position: relative;
+    padding-top: 60px;
+    margin-top: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #f2f2f2;
+    z-index: 2000;
+}
+
+.languages {
+    display: flex;
+    flex-direction: row;
+    flex: 0.5;
+}
+
+.language {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 40px;
+}
+
+.language_title {
+    text-transform: uppercase;
     top: 0;
-    left: 0;
-    z-index: -1;
-    background: url("../img/us_big.svg") 0 0;
-    background-repeat: no-repeat;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.language {
+    cursor: pointer;
+}
+
+.language_name {
+    color: #f2f2f2;
+    font-size: 28px;
+    margin: 5px;
+}
+
+.language_flag {
+    width: 200px;
+    height: 200px;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
@@ -15,42 +67,11 @@
     transform: rotate(90deg);
 }
 
-.flag {
-    position: relative;
-    height: 300px;
-    width: 250px;
-    background-color: transparent;
-}
-
-.flagwave {
-    position: absolute;
-    width: 164px;
-    height: 250px;
-    right: 43px;
-    z-index: 2;
-    background-image: -webkit-gradient( linear, 0% 30%, 50% top, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(40%, rgba(0, 0, 0, 0)), color-stop(90%, rgba(0, 0, 0, 0.3)), color-stop(100%, rgba(0, 0, 0, 0))), -webkit-gradient( linear, 50% 30%, 100% top, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(25%, rgba(0, 0, 0, 0.3)), color-stop(50%, rgba(0, 0, 0, 0)), color-stop(80%, rgba(0, 0, 0, 0.3)), color-stop(100%, rgba(0, 0, 0, 0)));
-    background-size: 400%;
-    background-position: right;
-    animation-name: flagwave;
-    animation-duration: 10s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-
-@keyframes flagwave {
-    0% {
-        background-position: -100px 0px, -100px 0px, -100px 0px, -100px 0px;
-    }
-    100% {
-        background-position: 800px 0px, 800px 0px, 800px 0px, 800px 0px;
-    }
-}
-
 .shine {
     width: 100%;
     /*Make sure the animation is over the whole element*/
     -webkit-animation-name: ShineAnimation;
-    -webkit-animation-duration: 3s;
+    -webkit-animation-duration: 10s;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-timing-function: cubic-bezier(.12, .89, .98, .47);
 }
@@ -59,7 +80,7 @@
     from {
         background-repeat: no-repeat;
         background-image: -webkit-linear-gradient( top left, rgba(255, 255, 255, 0.0) 0%, rgba(255, 255, 255, 0.0) 45%, rgba(255, 255, 255, 0.5) 48%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.5) 52%, rgba(255, 255, 255, 0.0) 57%, rgba(255, 255, 255, 0.0) 100%);
-        background-position: -250px -250px;
+        background-position: 0 0;
         background-size: 600px 600px
     }
     to {

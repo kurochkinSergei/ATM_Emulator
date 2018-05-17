@@ -7,6 +7,11 @@ sas-medium-blue: #4177B5;
 error: #EC0014
 success: #4DB45E
 sas-dark-grey: #272526
+
+ATM blue rgb(12, 52, 151)
+ATM red rbg(238,0,105)	
+ATM light blue rgb(27, 179,	245)	
+ATM medium blue rgb(35,	81,	190)	
  */
 
 body,
@@ -17,7 +22,7 @@ html {
 }
 
 .main-background {
-    background: #1C3476;
+    background: rgb(12, 52, 151);
 }
 
 .watermark-image {
@@ -28,4 +33,17 @@ html {
     opacity: 0.1;
     top: 5%;
     left: -10%;
+}
+
+.button {
+    background-color: rgba(27, 179, 245, 1);
+    color: #f2f2f2;
+    padding: 20px 40px;
+    cursor: pointer;
+    font-family: 'Open Sans Condensed', sans-serif;
+    /* transition: all ease-in-out 1s; */
+}
+
+.button:active {
+    background-color: rgba(27, 179, 245, 0.6);
 }
