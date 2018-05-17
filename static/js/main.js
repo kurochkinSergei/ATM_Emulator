@@ -1,4 +1,33 @@
 $(document).ready(() => {
+    function setCookie(name, value, options) {
+        options = options || {};
+
+        var expires = options.expires;
+
+        if (typeof expires == "number" && expires) {
+            var d = new Date();
+            d.setTime(d.getTime() + expires * 1000);
+            expires = options.expires = d;
+        }
+        if (expires && expires.toUTCString) {
+            options.expires = expires.toUTCString();
+        }
+
+        value = encodeURIComponent(value);
+
+        var updatedCookie = name + "=" + value;
+
+        for (var propName in options) {
+            updatedCookie += "; " + propName;
+            var propValue = options[propName];
+            if (propValue !== true) {
+                updatedCookie += "=" + propValue;
+            }
+        }
+
+        document.cookie = updatedCookie;
+    }
+
     var headlinesTimeline = anime.timeline({ loop: true })
 
     headlinesTimeline.add({
@@ -17,31 +46,16 @@ $(document).ready(() => {
         easing: 'easeInOutQuart',
     })
 
-    function req() {
-        $.ajax({
-                url: 'http://10.20.1.21:5000/atm_status',
-            })
-            .done(function(data) {
-                console.log("Ajax was succsessfully sent");
-                console.log(JSON.parse(data).status);
-                if (JSON.parse(data).status == false) {
-                    location = "outofserv.html"
-                }
-            })
-            .fail(function() {
-                console.log("Ajax failed to fetch data")
-            })
-    }
-    setInterval(req, 3000);
+    redirect = e => {
+        e.stopPropagation()
+        var chosenLang = $(e.target).attr('data-lang')
+        setCookie('Lang', chosenLang)
 
-    function reddir(arg) {
-        document.cookie = "Lang=" + arg + "; path=/";
+        // console.log(e.target)
+        // console.log(chosenLang)
+        // console.log('cookie :', document.cookie)
         location.href = "pin.html"
-
     }
 
-    //$.idleTimer(60000);
-    $(document).bind('idle.idleTimer', function() {
-        location.href = 'index.html'
-    });
+    $('.js-language').on("click", redirect)
 })

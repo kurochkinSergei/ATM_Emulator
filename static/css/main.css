@@ -1,14 +1,3 @@
-.atm-name {
-    font-size: 42px;
-    line-height: 42px;
-    font-family: 'Rubik Mono One', sans-serif;
-    color: #f2f2f2;
-    margin: 20px 20px;
-    text-align: left;
-    text-decoration: none;
-    display: block;
-}
-
 .languages-wrapper {
     user-select: none;
     position: relative;
@@ -52,6 +41,8 @@
 }
 
 .language_name {
+    width: 100%;
+    height: 100%;
     color: #f2f2f2;
     font-size: 28px;
     margin: 5px;
