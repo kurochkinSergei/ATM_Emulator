@@ -1,0 +1,21 @@
+/*
+COLORS
+sas-blue: #50A3D7;
+sas-dark-blue: #1C3476;
+sas-light-blue: #69C9EA;
+sas-medium-blue: #4177B5;
+error: #EC0014
+success: #4DB45E
+sas-dark-grey: #272526
+ */
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.gradient-background {
+    background-image: linear-gradient(-180deg, #0F184D 0%, #0054AD 75%);
+}

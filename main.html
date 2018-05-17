@@ -1,145 +1,38 @@
 ﻿<!doctype html>
-<html style="overflow-x:hidden">
+<html>
 
- <script type="text/javascript" src="../js/jquery-2.1.3.min.js"></script>  
- <script type="text/javascript" src="../js/idle-timer.min.js"></script>  
- <script type="text/javascript" src="../js/ext-core.js"></script>  
- <script type="text/javascript" src="../js/jquery.spoiler.min.js"></script>  
- <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
- <script src="../bootstrap/js/bootstrap.min.js"></script>
 <head>
+    <link href="./static/css/reset.css" rel="stylesheet" media="screen">
+    <link href="./static/css/common.css" rel="stylesheet" media="screen">
+    <link href="./static/css/main.css" rel="stylesheet" media="screen">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="../js/idle-timer.min.js"></script>
+    <script type="text/javascript" src="../js/ext-core.js"></script>
 </head>
-<body>
-<style>
- .spoiler_body {display:none;}
- .spoiler_links {cursor:pointer;}
-a:active{color:black}
-a:link{color:black}
-a:visited{color:black}
-@font-face {
-font-family:'BerlinSans'; /*Здесь Вы называете как хотите его использовать*/
-src: url('../fonts/BerlinSans.ttf');
-}
-body{
-background-image:url(backlang3.png);
-background-size:cover;
-}
-.langbutt
-{
-transform:scale(1,1);
-background-color:#163DA2;
-font-size:50px;
-text-align:center;
-width:400px;
-border-radius: 50px 0px 0px 50px;
-background:linear-gradient(to bottom left,#163DA2,#83E3FC);
-position:absolute;
-right:0;
-border: 3px solid grey;
-border-right: none;
-height:10vh;
-line-height:60px
-}
-.langbutt:hover
-{
-background:linear-gradient(to bottom left,#83E3FC,#163DA2);
-border:3px solid white;
-border-right:none;
-transform:scale(1.16,1.21);
-}
-.welcomeclassEng
-{
-position: absolute;
-top: 30%;
-width:100%;
-font-size:60px;
-font-family:'Sans';
-text-align:center;
-}
-.welcomeclassRus
-{
-position: absolute;
-top: 23%;
-width:100%;
-font-size:60px;
-font-family:'Sans';
-text-align:center;
-}
-.hdr
-{
-background-color:#5B9BD5;
-height:8vh;
-border: 3px solid rgb(118, 113, 113);
-color: white;
-font-size: 3em;
-font-weight: 600;
-font-family:BerlinSans;
-line-height: 55px;
-}
-@font-face {
-font-family:'Sans'; /*Здесь Вы называете как хотите его использовать*/
-src: url('../fonts/OpenSans.ttf');
-}
-.CatChose
-{
-font-family:'Sans';
-font-size:70px !important;
-}
-.Language
-{
-font-family:'Sans';
-font-size:55px !important;
-}
-</style>
 
-<header class="hdr">INNOVATION LAB : ATM-F</header>
+<body class="gradient-background">
+    <h1 class="">INNOVATION LAB : ATM-F</h1>
 
+    <div class="languages-wrapper">
+        <h2 class="language-select_title">Выберите язык:</h2>
 
-<div id="langsel" style="margin-top:5%">
-<h1 class="CatChose" style="width:100%;text-align:center;">Выберите язык:</h1>
-</div>
-<div id="langsel2" >
-<h1 class="CatChose" style="width:100%;text-align:center;">Select your language:</h1>
-</div>
-<div onclick="reddir('eng')"><h2 class = "langbutt Language"  style="bottom:25%" >English</h2></div>
-<div onclick="reddir('rus')"><h2 class = "langbutt Language"  style="bottom:39%" >Русский</h2></div>
-<div id='rus'></div>
+        <h2 class="language-select_title">Select your language:</h2>
 
-<!-- <a href="http://thebank.sas-mic.local/atm/main.html"> -->
-<a href="#">
- <img src = 'laguage4.png' style="width:500px;transform: rotate(30deg);position:absolute;bottom:15%;left:5%">
-</a>
-
-<div id="footer" class="navbar navbar-fixed-bottom" style="background-color:#5B9BD5;height:5vh;border:3px solid rgb(118, 113, 113)"></div>
-
-
-
-<script>
-function req()
-{
-$.ajax({
-  url: 'http://10.20.1.21:5000/atm_status',
-})
-.done(function(data) {
-	console.log("Ajax was succsessfully sent");
-	console.log(JSON.parse(data).status);
-	if (JSON.parse(data).status == false){location="outofserv.html"}
-		})
-.fail(function() {
-  console.log("Ajax failed to fetch data")
-})
-}
-
-$(".spoiler").spoiler();
-function reddir(arg)
-{
-	document.cookie = "Lang="+arg+"; path=/";
-	location.href="pin.html"
-
-}
-setInterval(req,3000);
-$.idleTimer(60000);
-$(document).bind('idle.idleTimer',function(){location.href='index.html'});
-</script>
+        <div class="language" onclick="reddir('eng')">
+            <img class="language_image" src="./static/img/united-kingdom_simple.svg">
+            <p class="language_title" style="bottom:25%">English</p>
+        </div>
+        <div class="language" onclick="reddir('rus')">
+            <img class="language_image" src="./static/img/russia_simple.svg ">
+            <p class="language-select-item_title " style="bottom:25% ">Русский</p>
+        </div>
+    </div>
+    <!-- <a href="http://thebank.sas-mic.local/atm/main.html "> -->
+    <a href="# ">
+        <img src='./static/img/earth.svg'>
+    </a>
 </body>
+
 </html>
