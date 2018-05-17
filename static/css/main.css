@@ -1,3 +1,47 @@
-img {
-    width: 100px;
+.flag:before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: url("../img/us_big.svg") 0 0;
+    background-repeat: no-repeat;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.flag {
+    position: relative;
+    height: 300px;
+    width: 250px;
+    background-color: transparent;
+}
+
+.flagwave {
+    position: absolute;
+    width: 164px;
+    height: 250px;
+    right: 43px;
+    z-index: 2;
+    background-image: -webkit-gradient( linear, 0% 30%, 50% top, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(40%, rgba(0, 0, 0, 0)), color-stop(90%, rgba(0, 0, 0, 0.3)), color-stop(100%, rgba(0, 0, 0, 0))), -webkit-gradient( linear, 50% 30%, 100% top, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(25%, rgba(0, 0, 0, 0.3)), color-stop(50%, rgba(0, 0, 0, 0)), color-stop(80%, rgba(0, 0, 0, 0.3)), color-stop(100%, rgba(0, 0, 0, 0)));
+    background-size: 400%;
+    background-position: right;
+    animation-name: flagwave;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes flagwave {
+    0% {
+        background-position: -100px 0px, -100px 0px, -100px 0px, -100px 0px;
+    }
+    100% {
+        background-position: 800px 0px, 800px 0px, 800px 0px, 800px 0px;
+    }
 }
