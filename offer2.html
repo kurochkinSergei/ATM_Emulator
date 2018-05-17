@@ -1,0 +1,84 @@
+﻿<!doctype html>
+<html>
+ 
+  <link rel="stylesheet" type="text/css" href="jquery.keypad.css" />
+<head>
+</head>
+<body>
+<style>
+a:active{color:black}
+a:link{color:black}
+a:visited{color:black}
+body{
+background-image:url(credit_f.jpg);
+}
+.buttonback
+{
+width:100px;
+height:50px;
+background:#163DA2;
+background:linear-gradient(to bottom left,#163DA2,#83E3FC);
+border-radius: 10px;
+text-align:center;
+position:fixed;
+top:30%;
+}
+.buttonback:hover
+{
+transform:scale(1.1,1.1);
+background:linear-gradient(to bottom left,#83E3FC,#163DA2);
+}
+.parall {
+	-webkit-transform: skew(-42deg);
+	   -moz-transform: skew(-42deg);
+	     -o-transform: skew(-42deg);
+  }
+  h2{opacity:1;
+  -webkit-transform: skew(42deg);
+	   -moz-transform: skew(42deg);
+	     -o-transform: skew(42deg);
+		 font-size:2em;
+		 color:#15185C;
+		 padding-left:15%;
+		 font:bold 26px Century Gothic};
+</style>
+<div class="parall" style="background-color: rgba(166, 177, 236, 0.6);position:fixed;top:10%;right:10%;width:465px;height:200px;">
+<h2 id='text'></h2>
+</div>
+<script type="text/javascript" src="../js/jquery-2.1.3.min.js"></script>  
+<script type="text/javascript" src="../js/idle-timer.min.js"></script>  
+<script>
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+};
+transliterate = (
+    function() {
+        var
+            rus = "ю ч ш щ х я ё ж а б д е ф г и дж к л м н о п р с т у в з ь".split(/ +/g),
+            eng = "yu ch sh sch kh ya yo zh a b d e f g i j k l m n o p r s t u v z '".split(/ +/g)
+        ;
+        return function(text, engToRus) {
+            var x;
+            for(x = 0; x < rus.length; x++) {
+                text = text.split(engToRus ? eng[x] : rus[x]).join(engToRus ? rus[x] : eng[x]);
+                text = text.split(engToRus ? eng[x].toUpperCase() : rus[x].toUpperCase()).join(engToRus ? rus[x].toUpperCase() : eng[x].toUpperCase());
+            }
+            return text;
+        }
+    }
+)();
+var text=readCookie("Text");
+var textrus = transliterate(transliterate(text), true);
+$('#text').text('Здравствуйте, '+textrus+'!\nОформите кредит в нашем банке в течение двух недель и получите сниженную процентную ставку ! ' );
+$(document).click(function(){location.href='cat.html'});
+
+</script>
+	</body>
+</html>
