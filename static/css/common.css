@@ -16,6 +16,16 @@ html {
     overflow: hidden;
 }
 
-.gradient-background {
-    background: #C7F0FA;
+.main-background {
+    background: #1C3476;
+}
+
+.watermark-image {
+    width: 90%;
+    height: 90%;
+    z-index: 1000;
+    position: absolute;
+    opacity: 0.1;
+    top: 5%;
+    left: -10%;
 }

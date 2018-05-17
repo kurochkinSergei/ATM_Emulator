@@ -5,3 +5,27 @@
     top: 10%;
     right: 10%;
 }
+
+.headline {
+    color: #f2f2f2;
+    position: absolute;
+    opacity: 1;
+    top: 400px;
+    right: 100px;
+    font-family: 'Russo One', sans-serif;
+    font-size: 48px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.headline_word {
+    opacity: 0;
+}
+
+.corner-icon {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
