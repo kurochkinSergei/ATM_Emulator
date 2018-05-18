@@ -24,9 +24,6 @@ $(document).ready(() => {
                     return TIME_BETWEEN_WORDS + (i * TIME_BETWEEN_WORDS);
                 },
                 complete: () => {
-                    console.log(headlines[ii].children)
-                    console.log('complete')
-
                     anime({
                         targets: headlines[ii].children,
                         opacity: 0,

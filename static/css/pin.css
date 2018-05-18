@@ -19,8 +19,9 @@
     display: block;
     width: 400px;
     height: 90px;
-    border: 2px solid rgb(35, 81, 190);
+    border: 2px solid #2351be;
     background: #f2f2f2;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .hdr {
@@ -64,4 +65,17 @@
     /* Firefox 18- */
     color: rgb(35, 81, 190);
     transform: scale(0.5)
+}
+
+.message-block {
+    opacity: 0;
+    position: absolute;
+    width: 400px;
+    height: 90px;
+    background-color: rgb(238, 0, 105);
+    color: #f2f2f2;
+    font-size: 36px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    line-height: 90px;
+    text-align: center;
 }

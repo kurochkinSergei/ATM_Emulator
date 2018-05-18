@@ -42,6 +42,10 @@ $(document).ready(() => {
         $pinInput = $('.js-pin-input', $pinForm),
         $buttons = $('.js-pin-button', $pinForm)
 
+    var isLanguageRus = readCookie('Lang') == 'rus'
+
+    $("#pin").html((readCookie('Lang') == 'rus') ? 'Введите Ваш ПИН-код' : 'Enter your PIN');
+
     readCookie = (name) => {
         var nameEQ = name + "=";
         var ca = document.cookie.split(';');
@@ -53,31 +57,67 @@ $(document).ready(() => {
         return null;
     };
 
-    var isLanguageRus = readCookie('Lang') == 'rus'
+    animeInput = () => {
+        inputColor = anime({
+            targets: '.js-pin-input',
+            backgroundColor: [
+                { value: '#f2f2f2' },
+                { value: 'rgb(238, 0, 105)' },
+                { value: '#f2f2f2' },
+            ],
+            easing: 'linear',
+            direction: 'alternate',
+            duration: 1500
+        });
+    }
 
-    $("#pin").html((readCookie('Lang') == 'rus') ? 'Введите Ваш ПИН-код' : 'Enter your PIN');
+    animeMessageBlock = () => {
+        blockOpacity = anime({
+            targets: '.js-message-block',
+            opacity: [
+                { value: '0' },
+                { value: '1' },
+                { value: '0' },
+            ],
+            easing: 'easeOutCubic',
+            direction: 'alternate',
+            duration: 3000,
+            delay: 500
+        });
+    }
 
-    $buttons.on('click',
-        (e) => {
-            var $button = $(e.target),
-                $input = $('.js-pin-input', $pinForm)
+    hideMessageBlock = () => {
+        inputColor = anime({
+            targets: '.js-message-block',
+            opacity: [
+                { value: '0' },
+            ],
+            easing: 'easeOutCubic',
+            duration: 3000,
+        });
+    }
 
-            var buttonValue = $button.attr('data-button-value'),
-                inputValue = $input.val()
+    setAccountCookies = data => {
+        if ($("#num").val() == '1001') {
+            document.cookie = "id=16002; path=/";
+            document.cookie = "fname=Максим; path=/";
+            document.cookie = "lname=Цуканов; path=/";
+            document.cookie = "mname=Викторович; path=/";
+            document.cookie = "pin=" + $("#num").val() + "; path=/";
+            location.href = "cat.html"
+        };
 
-            if (buttonValue == 'del') {
-                $input.val(inputValue.slice(0, -1))
-            } else if (buttonValue == 'submit') {
-                if (inputValue.length == 4)
-                    enterTheATM(inputValue);
-            } else if (inputValue.length == 4) return
-            else
-                $input.val(inputValue + buttonValue);
-        }
-    );
+        if ($("#num").val() == '1000') {
+            document.cookie = "id=16001; path=/";
+            document.cookie = "fname=Илья; path=/";
+            document.cookie = "lname=Маршаков; path=/";
+            document.cookie = "mname=Анатольевич; path=/";
+            document.cookie = "pin=" + $("#num").val() + "; path=/";
+            location.href = "cat.html"
+        };
+    }
 
-
-    enterTheATM = (pin) => {
+    enterTheATM = pin => {
         var options = {
             method: 'POST',
             headers: {
@@ -98,25 +138,41 @@ $(document).ready(() => {
             throw new TypeError("джисон не пришел-(");
         }).then(function(json) {
             if (!json) {
-                inputColor = anime({
-                    targets: '.js-pin-input',
-                    backgroundColor: [
-                        { value: '#f2f2f2' },
-                        { value: 'rgb(238, 0, 105)' },
-                        { value: '#f2f2f2' },
-                    ],
-                    easing: 'linear',
-                    direction: 'alternate',
-                    duration: 1500
-                });
+                animeInput()
             } else {
-                console.log('CardBlocked', json.CardBlocked)
+                if (json.CardBlocked) {
+                    animeMessageBlock()
+                } else {
+
+                }
             }
             console.log(json)
         }).catch(function(e) {
             console.log("Error getting card_data", e)
         });
     }
+
+    $buttons.on('click',
+        (e) => {
+            //animation still needs fix
+            hideMessageBlock()
+
+            var $button = $(e.target),
+                $input = $('.js-pin-input', $pinForm)
+
+            var buttonValue = $button.attr('data-button-value'),
+                inputValue = $input.val()
+
+            if (buttonValue == 'del') {
+                $input.val(inputValue.slice(0, -1))
+            } else if (buttonValue == 'submit') {
+                if (inputValue.length == 4)
+                    enterTheATM(inputValue);
+            } else if (inputValue.length == 4) return
+            else
+                $input.val(inputValue + buttonValue);
+        }
+    );
 
     //Установка таймера бездействия пользователя
     // $.idleTimer(120000);
@@ -128,25 +184,4 @@ $(document).ready(() => {
     // document.getElementById('passform').style.left = $(window).width() / 2 - 245 + 'px';
     // var br = document.getElementById('keypad').getBoundingClientRect();
     // document.getElementById('passform').style.top = br.top - 150 + 'px';
-
-
-    function ident() {
-        if ($("#num").val() == '1001') {
-            document.cookie = "id=16002; path=/";
-            document.cookie = "fname=Максим; path=/";
-            document.cookie = "lname=Цуканов; path=/";
-            document.cookie = "mname=Викторович; path=/";
-            document.cookie = "pin=" + $("#num").val() + "; path=/";
-            location.href = "cat.html"
-        };
-
-        if ($("#num").val() == '1000') {
-            document.cookie = "id=16001; path=/";
-            document.cookie = "fname=Илья; path=/";
-            document.cookie = "lname=Маршаков; path=/";
-            document.cookie = "mname=Анатольевич; path=/";
-            document.cookie = "pin=" + $("#num").val() + "; path=/";
-            location.href = "cat.html"
-        };
-    }
 })

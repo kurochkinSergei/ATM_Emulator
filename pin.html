@@ -27,7 +27,11 @@
     <!-- <p id='pin' style="font-size:60px;text-align:center;margin-top:1%;font-family:'Sans';width: 100%;height:55px"></p> -->
     <div class="center-content">
         <form id="pin-form" class="js-pin-form">
-            <input type="password" placeholder="Пин код" class="pin-input js-pin-input" id="num" />
+            <div>
+                <div class="message-block js-message-block">Карта заблокирована</div>
+                <input type="password" placeholder="Пин код" class="pin-input js-pin-input" id="num" />
+            </div>
+
             <table id="keypad" align="center">
                 <tbody>
                     <tr>
