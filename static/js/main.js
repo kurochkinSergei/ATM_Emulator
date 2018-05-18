@@ -18,7 +18,7 @@ $(document).ready(() => {
         var updatedCookie = name + "=" + value;
 
         for (var propName in options) {
-            updatedCookie += "; " + propName;
+            updatedCookie += ", " + propName;
             var propValue = options[propName];
             if (propValue !== true) {
                 updatedCookie += "=" + propValue;
@@ -27,7 +27,6 @@ $(document).ready(() => {
 
         document.cookie = updatedCookie;
     }
-
     var headlinesTimeline = anime.timeline({ loop: true })
 
     headlinesTimeline.add({

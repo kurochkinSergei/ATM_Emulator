@@ -4,10 +4,17 @@
     margin-top: 0%;
 }
 
+#pin-form {
+    display: flex;
+    margin-top: 40px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .pin-input {
     color: rgb(35, 81, 190);
     text-align: center;
-    margin: 45px auto 15px auto;
     font-size: 72px;
     display: block;
     width: 400px;
@@ -36,8 +43,25 @@
     padding: 0;
 }
 
-@font-face {
-    font-family: 'Sans';
-    /*Здесь Вы называете как хотите его использовать*/
-    src: url('../fonts/OpenSans.ttf');
+.pin-input::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: rgb(27, 179, 245);
+    transform: scale(0.5)
+}
+
+.pin-input::-moz-placeholder {
+    /* Firefox 19+ */
+    color: rgb(35, 81, 190);
+}
+
+.pin-input::-ms-input-placeholder {
+    /* IE 10+ */
+    color: rgb(35, 81, 190);
+    transform: scale(0.5)
+}
+
+.pin-input::-moz-placeholder {
+    /* Firefox 18- */
+    color: rgb(35, 81, 190);
+    transform: scale(0.5)
 }

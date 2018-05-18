@@ -54,6 +54,7 @@ html {
 }
 
 .atm-name {
+    position: absolute;
     font-size: 42px;
     line-height: 42px;
     font-family: 'Rubik Mono One', sans-serif;
@@ -61,5 +62,15 @@ html {
     margin: 20px 20px;
     text-align: left;
     text-decoration: none;
-    display: block;
+    display: inline-block;
+    z-index: 3000;
+}
+
+.center-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
