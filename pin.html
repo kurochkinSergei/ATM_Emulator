@@ -15,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./static/js/vendor/anime.min.js" async="true"></script>
     <script type="text/javascript" src="./static/js/pin.js" async="true"></script>
 
 </head>
@@ -25,52 +26,52 @@
 
     <!-- <p id='pin' style="font-size:60px;text-align:center;margin-top:1%;font-family:'Sans';width: 100%;height:55px"></p> -->
     <div class="center-content">
-        <form id="pin-form js-pin-form">
+        <form id="pin-form" class="js-pin-form">
             <input type="password" placeholder="Пин код" class="pin-input js-pin-input" id="num" />
             <table id="keypad" align="center">
                 <tbody>
                     <tr>
                         <td>
-                            <div class="pin-button button">1</button>
+                            <div class="pin-button js-pin-button button" data-button-value="1">1</button>
                         </td>
                         <td>
-                            <div class="pin-button button">2</div>
+                            <div class="pin-button js-pin-button button" data-button-value="2">2</div>
                         </td>
                         <td>
-                            <div class="pin-button button">3</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="pin-button button">4</div>
-                        </td>
-                        <td>
-                            <div class="pin-button button">5</div>
-                        </td>
-                        <td>
-                            <div class="pin-button button">6</div>
+                            <div class="pin-button js-pin-button button" data-button-value="3">3</div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="pin-button button">7</div>
+                            <div class="pin-button js-pin-button button" data-button-value="4">4</div>
                         </td>
                         <td>
-                            <div class="pin-button button">8</div>
+                            <div class="pin-button js-pin-button button" data-button-value="5">5</div>
                         </td>
                         <td>
-                            <div class="pin-button button">9</div>
+                            <div class="pin-button js-pin-button button" data-button-value="6">6</div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="pin-button button button_dark">del</div>
+                            <div class="pin-button js-pin-button button" data-button-value="7">7</div>
                         </td>
                         <td>
-                            <div class="pin-button button">0</div>
+                            <div class="pin-button js-pin-button button" data-button-value="8">8</div>
                         </td>
                         <td>
-                            <div class="pin-button button button_dark">&crarr;</div>
+                            <div class="pin-button js-pin-button button" data-button-value="9">9</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="pin-button js-pin-button button button_dark" data-button-value="del">del</div>
+                        </td>
+                        <td>
+                            <div class="pin-button js-pin-button button" data-button-value="0">0</div>
+                        </td>
+                        <td>
+                            <div class="pin-button js-pin-button button button_dark" data-button-value="submit">&crarr;</div>
                         </td>
                     </tr>
                 </tbody>
