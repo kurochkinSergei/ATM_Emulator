@@ -1,50 +1,7 @@
 $(document).ready(() => {
-    var resp_example = {
-        AccountAmount: 0,
-        AccountBalance: 4900,
-        AccountID: 1,
-        AccountParam1: null,
-        AccountParam2: null,
-        AccountParam3: null,
-        AccountParam4: null,
-        AccountPayment: 0,
-        AccountPrice: null,
-        AccountStatus: "0",
-        AccountType: "card",
-        AccountValidFrom: null,
-        AccountValidTo: null,
-        CardCVC: null,
-        CardCashLImit: null,
-        CardID: 1,
-        CardNumber: "2569128956431209",
-        CardParam1: "IL'YA MARSHAKOV",
-        CardParam2: null,
-        CardParam3: null,
-        CardParam4: null,
-        CardPin: 1000,
-        CardStatus: "manufactured",
-        CardType: null,
-        CardType2: null,
-        CardValidFrom: null,
-        CardValidTo: "2022-03-31 00:00:00.0000000",
-        IndivID: 16001,
-        LoyaltyScore: null,
-        ProdDetID: 8,
-        TMP_BLOCK_DTTM: 0,
-        TMP_BLOCK_FLG: 0,
-        TRUSTED_ATM_ENABLED: 0,
-        Trans_Limit: 0,
-        Trans_Limit_Flg: 0,
-        TrustedTransLimit: 0,
-        CardBlocked: 0
-    }
     var $pinForm = $('.js-pin-form'),
         $pinInput = $('.js-pin-input', $pinForm),
         $buttons = $('.js-pin-button', $pinForm)
-
-    var isLanguageRus = readCookie('Lang') == 'rus'
-
-    $("#pin").html((readCookie('Lang') == 'rus') ? 'Введите Ваш ПИН-код' : 'Enter your PIN');
 
     readCookie = (name) => {
         var nameEQ = name + "=";
@@ -98,23 +55,11 @@ $(document).ready(() => {
     }
 
     setAccountCookies = data => {
-        if ($("#num").val() == '1001') {
-            document.cookie = "id=16002; path=/";
-            document.cookie = "fname=Максим; path=/";
-            document.cookie = "lname=Цуканов; path=/";
-            document.cookie = "mname=Викторович; path=/";
-            document.cookie = "pin=" + $("#num").val() + "; path=/";
-            location.href = "cat.html"
-        };
-
-        if ($("#num").val() == '1000') {
-            document.cookie = "id=16001; path=/";
-            document.cookie = "fname=Илья; path=/";
-            document.cookie = "lname=Маршаков; path=/";
-            document.cookie = "mname=Анатольевич; path=/";
-            document.cookie = "pin=" + $("#num").val() + "; path=/";
-            location.href = "cat.html"
-        };
+        document.cookie = "id=${data.IndivID}; path=/";
+        document.cookie = "name=${data.CardParam1}; path=/";
+        document.cookie = "pin=${data.CardPin}; path=/";
+        document.cookie = "balance=${data.CardPin}; path=/";
+        console.log(document.cookie)
     }
 
     enterTheATM = pin => {
@@ -143,7 +88,8 @@ $(document).ready(() => {
                 if (json.CardBlocked) {
                     animeMessageBlock()
                 } else {
-
+                    setAccountCookies(json)
+                        // location.href = "cat.html"
                 }
             }
             console.log(json)
@@ -174,6 +120,9 @@ $(document).ready(() => {
         }
     );
 
+    var isLanguageRus = readCookie('Lang') == 'rus'
+
+    $("#pin").html((readCookie('Lang') == 'rus') ? 'Введите Ваш ПИН-код' : 'Enter your PIN');
     //Установка таймера бездействия пользователя
     // $.idleTimer(120000);
     // $(document).bind('idle.idleTimer', function() {
