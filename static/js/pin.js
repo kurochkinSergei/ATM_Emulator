@@ -3,6 +3,18 @@ $(document).ready(() => {
         $pinInput = $('.js-pin-input', $pinForm),
         $buttons = $('.js-pin-button', $pinForm)
 
+    function storageAvailable(type) {
+        try {
+            var storage = window[type],
+                x = '__storage_test__';
+            storage.setItem(x, x);
+            storage.removeItem(x);
+            return true;
+        } catch (e) {
+            return false;
+        }
+    }
+
     readCookie = (name) => {
         var nameEQ = name + "=";
         var ca = document.cookie.split(';');
@@ -54,12 +66,21 @@ $(document).ready(() => {
         });
     }
 
-    setAccountCookies = data => {
-        document.cookie = "id=${data.IndivID}; path=/";
-        document.cookie = "name=${data.CardParam1}; path=/";
-        document.cookie = "pin=${data.CardPin}; path=/";
-        document.cookie = "balance=${data.CardPin}; path=/";
-        console.log(document.cookie)
+    writeDataToLocalStorage = data => {
+        var storage = window['localStorage']
+        if (storageAvailable('localStorage')) {
+            storage.setItem('id', data.IndivID)
+            storage.setItem('name', data.CardParam1)
+            storage.setItem('pin', data.CardPin)
+            storage.setItem('balance', data.balance)
+
+        }
+
+        // .cookie = "id=${data.IndivID}; path=/";
+        // document.cookie = "name=${data.CardParam1}; path=/";
+        // document.cookie = "pin=${data.CardPin}; path=/";
+        // document.cookie = "balance=${data.CardPin}; path=/";
+        console.log(storage)
     }
 
     enterTheATM = pin => {
@@ -80,6 +101,11 @@ $(document).ready(() => {
             if (contentType && contentType.includes("application/json")) {
                 return response.json();
             }
+            $.getJSON('./data_sample.json', function(data) {
+                writeDataToLocalStorage(data[0])
+                console.log(data)
+            })
+
             throw new TypeError("джисон не пришел-(");
         }).then(function(json) {
             if (!json) {
@@ -88,7 +114,7 @@ $(document).ready(() => {
                 if (json.CardBlocked) {
                     animeMessageBlock()
                 } else {
-                    setAccountCookies(json)
+                    writeDataToLocalStorage(json)
                         // location.href = "cat.html"
                 }
             }
@@ -123,14 +149,11 @@ $(document).ready(() => {
     var isLanguageRus = readCookie('Lang') == 'rus'
 
     $("#pin").html((readCookie('Lang') == 'rus') ? 'Введите Ваш ПИН-код' : 'Enter your PIN');
+
+
     //Установка таймера бездействия пользователя
     // $.idleTimer(120000);
     // $(document).bind('idle.idleTimer', function() {
     //     location.href = 'index.html'
     // });
-
-    //document.getElementById('keypad').style.left = $(window).width()/2-210+'px';
-    // document.getElementById('passform').style.left = $(window).width() / 2 - 245 + 'px';
-    // var br = document.getElementById('keypad').getBoundingClientRect();
-    // document.getElementById('passform').style.top = br.top - 150 + 'px';
 })
