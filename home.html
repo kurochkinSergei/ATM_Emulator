@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ATM-F Categories</title>
+    <title>ATM-F Home</title>
 
     <link rel="stylesheet" type="text/css" href="./static/css/common.css">
-    <link rel="stylesheet" type="text/css" href="./static/css/categories.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/home.css">
     <link rel="stylesheet" type="text/css" href="./static/css/reset.css">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Bungee+Inline|Rubik+Mono+One" rel="stylesheet">
@@ -17,7 +17,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./static/js/vendor/anime.min.js" async="true"></script>
     <!-- <script type="text/javascript" src="./static/js/out_of_serv.js" async="true"></script> -->
-    <script type="text/javascript" src="./static/js/categories.js" async="true"></script>
+    <script type="text/javascript" src="./static/js/home.js" async="true"></script>
 
 
 
@@ -46,14 +46,21 @@
         </div>
 
         <div class="categories-block">
-            <div class="category">Снятие наличных</div>
-            <div class="category">Вклады</div>
-            <div class="category">Платежи</div>
-            <div class="category">Моя карта</div>
-            <div class="category">Настройки аккаунта</div>
-            <div class="category ">Другое</div>
+            <div class="categories-row">
+                <div class="category button">Снятие наличных</div>
+                <div class="category button">Вклады</div>
+            </div>
+            <div class="categories-row">
 
-            <div class="quick-cash">500 руб. быстрое снятие</div>
+                <div class="category button">Платежи</div>
+                <div class="category button">Моя карта</div>
+            </div>
+            <div class="categories-row">
+
+                <div class="category button">Настройки аккаунта</div>
+                <div class="category button button_dark">Другое</div>
+            </div>
+            <div class="quick-cash button button_red">Быстрое снятие: 500р.</div>
         </div>
     </div>
 

@@ -42,6 +42,6 @@ $(document).ready(() => {
     }, totalDuration)
 
     $(document).on('click', () => {
-        location.href = 'main.html'
+        location.href = 'language.html'
     })
 })

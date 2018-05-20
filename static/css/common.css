@@ -9,7 +9,7 @@ success: #4DB45E
 sas-dark-grey: #272526
 
 ATM blue rgb(12, 52, 151)
-ATM red rbg(238,0,105)	
+ATM red rgb(238,0,105)	
 ATM light blue rgb(27, 179,	245)	
 ATM medium blue rgb(35,	81,	190)	
  */
@@ -19,6 +19,8 @@ html {
     height: 100%;
     width: 100%;
     overflow: hidden;
+    min-width: 1024px;
+    /* min-height: 768px; */
 }
 
 .main-background {
@@ -46,11 +48,16 @@ html {
 }
 
 .button:active {
-    background-color: rgba(27, 179, 245, 0.6);
+    opacity: 0.6;
+    /* background-color: rgba(27, 179, 245, 0.6); */
 }
 
 .button_dark {
     background-color: rgb(35, 81, 190)
+}
+
+.button_red {
+    background-color: rgb(238, 0, 105)
 }
 
 .atm-name {
