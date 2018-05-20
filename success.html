@@ -171,6 +171,25 @@ function timer(){
 }
 setTimeout(timer,1000);
 $("#back").click(function(){location.href='main.html'})
+
+transliterate = (
+    function() {
+        var
+            rus = "ю ч ш щ х я ё ж а б д е ф г и дж к л м н о п р с т у в з ь".split(/ +/g),
+            eng = "yu ch sh sch kh ya yo zh a b d e f g i j k l m n o p r s t u v z '".split(/ +/g)
+        ;
+        return function(text, engToRus) {
+            var x;
+            for(x = 0; x < rus.length; x++) {
+                text = text.split(engToRus ? eng[x] : rus[x]).join(engToRus ? rus[x] : eng[x]);
+                text = text.split(engToRus ? eng[x].toUpperCase() : rus[x].toUpperCase()).join(engToRus ? rus[x].toUpperCase() : eng[x].toUpperCase());
+            }
+            return text;
+        }
+    }
+)();
+
+
 </script>
 </body>
 </html> -->
