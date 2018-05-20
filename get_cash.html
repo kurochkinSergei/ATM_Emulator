@@ -7,16 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ATM-F Get cash</title>
 
+    <!-- Стили -->
     <link rel="stylesheet" type="text/css" href="./static/css/common.css">
-    <!-- Нужно для поддержки общей структуры -->
     <link rel="stylesheet" type="text/css" href="./static/css/main.css">
     <link rel="stylesheet" type="text/css" href="./static/css/reset.css">
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Bungee+Inline|Rubik+Mono+One" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
 
+    <!-- Шрифты -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Rubik+Mono+One" rel="stylesheet">
+
+    <!-- Скрипты вендоров -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./static/js/vendor/anime.min.js" async="true"></script>
+
+    <!-- Скрипты страницы -->
     <!-- <script type="text/javascript" src="./static/js/out_of_serv.js" async="true"></script> -->
     <!-- <script type="text/javascript" src="./static/js/home.js" async="true"></script> -->
 </head>
@@ -25,7 +28,7 @@
     <a href="#" class="atm-name">ATM-F</a>
     <a href="home.html" class="back-block back-block_home">Домой</a>
 
-    <img class="watermark-image" src="./static/img/atm.svg">
+    <img class="watermark-image" src="./static/img/funds.svg">
 
     <div class="content content_huge">
         <div class="side-block">
@@ -40,27 +43,27 @@
             </div>
         </div>
 
-        <div class="categories-block">
+        <div class="categories-block js-cash-wrapper">
             <div class="categories-row">
                 <input type="text" placeholder="Выберите сумму" class="cash-input js-cash-input" />
-                <div class="cash-controls">
+                <div class="cash-controls js-cash-controls hidden">
                     <div class="js-minus">&ndash;</div>
                     <div class="js-plus">+</div>
                 </div>
             </div>
             <div class="categories-row">
-                <div data-cash-amount="500" class="category button">500</div>
-                <div data-cash-amount="1500" class="category button">1500</div>
+                <div data-cash-amount="500" class="category button js-cash-button">500</div>
+                <div data-cash-amount="1500" class="category button js-cash-button">1500</div>
             </div>
             <div class="categories-row">
-                <div data-cash-amount="3000" class="category button">3000</div>
-                <div data-cash-amount="5000" class="category button">5000</div>
+                <div data-cash-amount="3000" class="category button js-cash-button">3000</div>
+                <div data-cash-amount="5000" class="category button js-cash-button">5000</div>
             </div>
             <div class="categories-row">
-                <div data-cash-amount="7000" class="category button">7000</div>
-                <div data-cash-amount="10000" class="category button">10000</div>
+                <div data-cash-amount="7000" class="category button js-cash-button">7000</div>
+                <div data-cash-amount="10000" class="category button js-cash-button">10000</div>
             </div>
-            <div class="category-attractive button button_red js-get-quick-cash" data-cash-amount="500">
+            <div class="category-attractive button button_red hidden js-get-quick-cash" data-cash-amount="500">
                 <span class="quick-cash_amount js-cash-amount">500р.</span>
                 <span class="js-translate js-quick-cash">Снять</span>
                 <div class="category-attractive_arrow"></div>

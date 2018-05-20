@@ -1,19 +1,23 @@
-﻿<!doctype html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
+    <!-- Стили -->
     <link href="./static/css/reset.css" rel="stylesheet" media="screen">
     <link href="./static/css/common.css" rel="stylesheet" media="screen">
     <link href="./static/css/language.css" rel="stylesheet" media="screen">
 
+    <!-- Шрифты -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Rubik+Mono+One" rel="stylesheet">
 
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
-    <script type="text/javascript" src="../js/idle-timer.min.js"></script>
+    <!-- Скрипты вендоров -->
+    <!-- <script type="text/javascript" src="../js/idle-timer.min.js"></script> -->
     <script type="text/javascript" src="./static/js/vendor/anime.min.js" async="true"></script>
     <!-- <script type="text/javascript" src="./static/js/out_of_serv.js" async="true"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!-- Скрипты страницы -->
+    <script type="text/javascript" src="./static/js/appearing_headlines.js" async="true"></script>
     <script type="text/javascript" src="./static/js/language.js" async="true"></script>
 </head>
 
@@ -21,12 +25,11 @@
     <!-- <a href="http://thebank.sas-mic.local/atm/main.html "></a> -->
     <a href="#" class="atm-name">ATM-F</a>
 
-
     <img class="watermark-image" src='./static/img/earth.svg'>
     <div class="center-content">
-        <div class="languages-wrapper">
-            <h2 class="language_title js-language-title">Выберите язык:</h2>
-            <h2 class="language_title js-language-title">Select your language:</h2>
+        <div class="content-wrapper">
+            <h2 class="appearing-headline js-appearing-headline">Выберите язык:</h2>
+            <h2 class="appearing-headline js-appearing-headline">Select your language:</h2>
 
             <div class="languages">
                 <div class="language">

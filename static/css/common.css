@@ -23,6 +23,15 @@ html {
     /* min-height: 768px; */
 }
 
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.opaque {
+    opacity: 0;
+}
+
 .main-background {
     background: rgb(12, 52, 151);
 }
@@ -153,4 +162,28 @@ html {
     /* Firefox 18- */
     color: rgb(35, 81, 190);
     transform: scale(0.7)
+}
+
+.content-wrapper {
+    user-select: none;
+    position: relative;
+    padding-top: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #f2f2f2;
+    z-index: 2000;
+}
+
+.appearing-headline {
+    text-transform: uppercase;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    font-size: 48px;
+    margin: 10px 0;
 }
