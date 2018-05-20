@@ -18,49 +18,52 @@
     <script type="text/javascript" src="./static/js/vendor/anime.min.js" async="true"></script>
     <!-- <script type="text/javascript" src="./static/js/out_of_serv.js" async="true"></script> -->
     <script type="text/javascript" src="./static/js/home.js" async="true"></script>
-
-
-
 </head>
 
 <body class="main-background">
     <a href="#" class="atm-name">ATM-F</a>
-    <div class="back-block"></div>
+    <a href="return_card.html" class="back-block back-block_return-card">Забрать карту</a>
+
+    <img class="watermark-image" src="./static/img/atm.svg">
 
     <div class="content">
         <div class="side-block">
             <div class="info">
-                <div class="info-title">Здравствуйте,</div>
+                <div class="info-title js-translate js-greeting">Здравствуйте,</div>
                 <div class="info-value js-cust-name">Максим Викторович</div>
             </div>
 
             <div class="info">
-                <div class="info-title">Баланс:</div>
+                <div class="info-title js-translate js-balance">Баланс:</div>
                 <div class="info-value js-account-balance">55 000 руб.</div>
             </div>
 
             <div class="info">
-                <div class="info-title">Номер карты:</div>
+                <div class="info-title js-translate js-card-number">Номер карты:</div>
                 <div class="info-value js-card-number"> 12** **** 1234</div>
             </div>
         </div>
 
         <div class="categories-block">
             <div class="categories-row">
-                <div class="category button">Снятие наличных</div>
-                <div class="category button">Вклады</div>
+                <a class="category button js-translate js-cash-withdrawal">Снятие наличных</a>
+                <div class="category button js-translate js-deposit">Вклады</div>
             </div>
             <div class="categories-row">
 
-                <div class="category button">Платежи</div>
-                <div class="category button">Моя карта</div>
+                <div class="category button js-translate js-payments">Платежи</div>
+                <div class="category button js-translate js-my-card">Моя карта</div>
             </div>
             <div class="categories-row">
 
-                <div class="category button">Настройки аккаунта</div>
-                <div class="category button button_dark">Другое</div>
+                <div class="category button js-translate js-settings">Настройки аккаунта</div>
+                <div class="category button button_dark js-translate js-other">Другое</div>
             </div>
-            <div class="quick-cash button button_red">Быстрое снятие: 500р.</div>
+            <div class="category-attractive button button_red js-get-quick-cash" data-cash-amount="500">
+                <span class="quick-cash_amount">500р.</span>
+                <span class="js-translate js-quick-cash">Быстрое снятие</span>
+                <div class="category-attractive_arrow"></div>
+            </div>
         </div>
     </div>
 
@@ -77,10 +80,6 @@
 </head>
 
 <body>
-
-
-
-
     <!-- <header class="hdr">INNOVATION LAB : ATM</header>
     <h1 id='name' style="font-size:60px;text-align:center;position:fixed;top:15%;width:100%;font-family:'Sans'"></h1>
     <h1 id='cat' style="font-size:60px;text-align:center;position:fixed;top:25%;width: 100%;font-family:'Sans'"></h1>

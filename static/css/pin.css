@@ -44,6 +44,12 @@
     padding: 0;
 }
 
+.delete-button_image {
+    width: 45px;
+    height: 45px;
+    margin: 32.5px 42.5px;
+}
+
 .pin-input::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
     color: rgb(27, 179, 245);

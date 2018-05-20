@@ -134,6 +134,7 @@ $(document).ready(() => {
 
             var buttonValue = $button.attr('data-button-value'),
                 inputValue = $input.val()
+            console.log(buttonValue)
 
             if (buttonValue == 'del') {
                 $input.val(inputValue.slice(0, -1))
@@ -143,6 +144,7 @@ $(document).ready(() => {
             } else if (inputValue.length == 4) return
             else
                 $input.val(inputValue + buttonValue);
+
         }
     );
 

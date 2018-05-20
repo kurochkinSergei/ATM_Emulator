@@ -44,8 +44,27 @@
     margin-right: 10px;
 }
 
-.quick-cash {
+.category-attractive {
+    position: relative;
+    line-height: 40px;
     height: 80px;
+    font-size: 24px;
+}
+
+.category-attractive_arrow {
+    width: 20px;
+    height: 20px;
+    border-right: 2px solid #f2f2f2;
+    border-top: 2px solid #f2f2f2;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 30px;
+    right: 45px;
+}
+
+.quick-cash_amount {
+    margin: 0 60px;
+    font-weight: bold;
 }
 
 .info {
