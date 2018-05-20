@@ -37,7 +37,12 @@ html {
     left: -10%;
 }
 
+.watermark-image_rotated {
+    transform: rotate(45deg)
+}
+
 .button {
+    text-decoration: none;
     user-select: none;
     background-color: rgba(27, 179, 245, 1);
     color: #f2f2f2;
@@ -92,11 +97,14 @@ html {
     height: 42px;
     background-size: cover;
     position: absolute;
+    background-repeat: no-repeat;
     top: 0;
     right: 0;
 }
 
-.back-block_home {}
+.back-block_home:after {
+    background-image: url("../img/atm_white.svg")
+}
 
 .back-block_return-card:after {
     background-image: url("../img/credit-card-return.svg")
@@ -109,4 +117,40 @@ html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.cash-input {
+    color: rgb(35, 81, 190);
+    text-align: center;
+    font-size: 72px;
+    display: block;
+    width: 400px;
+    height: 90px;
+    border: 2px solid #2351be;
+    background: #f2f2f2;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.cash-input::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: rgb(27, 179, 245);
+    transform: scale(0.7)
+}
+
+.cash-input::-moz-placeholder {
+    /* Firefox 19+ */
+    color: rgb(35, 81, 190);
+    transform: scale(0.7)
+}
+
+.cash-input::-ms-input-placeholder {
+    /* IE 10+ */
+    color: rgb(35, 81, 190);
+    transform: scale(0.7)
+}
+
+.cash-input::-moz-placeholder {
+    /* Firefox 18- */
+    color: rgb(35, 81, 190);
+    transform: scale(0.7)
 }

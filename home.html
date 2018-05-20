@@ -8,7 +8,7 @@
     <title>ATM-F Home</title>
 
     <link rel="stylesheet" type="text/css" href="./static/css/common.css">
-    <link rel="stylesheet" type="text/css" href="./static/css/home.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/main.css">
     <link rel="stylesheet" type="text/css" href="./static/css/reset.css">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Bungee+Inline|Rubik+Mono+One" rel="stylesheet">
@@ -46,7 +46,7 @@
 
         <div class="categories-block">
             <div class="categories-row">
-                <a class="category button js-translate js-cash-withdrawal">Снятие наличных</a>
+                <a href="get_cash.html" class="category button js-translate js-cash-withdrawal">Снятие наличных</a>
                 <div class="category button js-translate js-deposit">Вклады</div>
             </div>
             <div class="categories-row">
@@ -56,11 +56,12 @@
             </div>
             <div class="categories-row">
 
-                <div class="category button js-translate js-settings">Настройки аккаунта</div>
+                <div class="category button js-translate js-settings">Управление счетом</div>
                 <div class="category button button_dark js-translate js-other">Другое</div>
             </div>
-            <div class="category-attractive button button_red js-get-quick-cash" data-cash-amount="500">
-                <span class="quick-cash_amount">500р.</span>
+            <div class="category-attractive categories-row_separated-60 button button_red js-get-quick-cash" data-cash-amount="500">
+                <span class="quick-cash_amount js-cash-amount">500р.
+                </span>
                 <span class="js-translate js-quick-cash">Быстрое снятие</span>
                 <div class="category-attractive_arrow"></div>
             </div>
