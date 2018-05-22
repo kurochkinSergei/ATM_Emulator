@@ -14,6 +14,8 @@
 
     <!-- Шрифты -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Rubik+Mono+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+
 
     <!-- Скрипты вендоров -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -23,6 +25,7 @@
     <!-- Скрипты страницы -->
     <script type="text/javascript" src="./static/js/home.js" async="true"></script>
     <script type="text/javascript" src="./static/js/insert_customer_data.js" async="true"></script>
+    <script type="text/javascript" src="./static/js/get_cash.js" async="true"></script>
 </head>
 
 <body class="main-background">
@@ -168,10 +171,6 @@
         $(document).bind('idle.idleTimer', function() {
             location.href = 'index.html'
         });
-
-
-
-
 
         function func(jsonData2) {
             var URLvar;

@@ -13,6 +13,8 @@
 
     <!-- Шрифты -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Rubik+Mono+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+
 
     <!-- Скрипты вендоров -->
     <!-- <script type="text/javascript" src="../js/idle-timer.min.js"></script> -->
@@ -23,6 +25,7 @@
     <!-- Скрипты страницы -->
     <script type="text/javascript" src="./static/js/appearing_headlines.js" async="true"></script>
     <script type="text/javascript" src="./static/js/redirect_to_index.js" async="true"></script>
+    <script type="text/javascript" src="./static/js/success.js" async="true"></script>
 </head>
 
 <body class="main-background">
@@ -30,8 +33,8 @@
     <a href="#" class="atm-name">ATM-F</a>
 
 
-    <img class="watermark-image" src='./static/img/tick.svg'>
-    <!-- <img class="watermark-image watermark-image_rotated" src='./static/img/plus.svg'> -->
+    <img class="watermark-image hidden watermark-image_rotated js-watermark-image" src='./static/img/plus.svg'>
+    <!-- <img class="watermark-image watermark-image_rotated" src='./static/img/tick.svg'> -->
     <div class="center-content">
         <div class="content-wrapper">
             <h2 class="appearing-headline js-appearing-headline">Пожалуйста, заберите деньги</h2>
@@ -42,157 +45,3 @@
 </body>
 
 </html>
-
-
-<!-- <!doctype html>
-<html>
- <script type="text/javascript" src="../js/jquery-2.1.3.min.js"></script>  
-<script type="text/javascript" src="../js/idle-timer.min.js"></script>  
- <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
- <script src="../bootstrap/js/bootstrap.min.js"></script>
-<head>
-</head>
-<style>
-@font-face {
-font-family:'BerlinSans'; /*Здесь Вы называете как хотите его использовать*/
-src: url('../fonts/BerlinSans.ttf');
-}
-body{
-background-image:url(backlang3.png);
-background-size:cover;
-}
-.hdr
-{
-background-color:#5B9BD5;
-height:8vh;
-border: 3px solid rgb(118, 113, 113);
-color: white;
-font-size: 3em;
-font-weight: 600;
-font-family:BerlinSans;
-line-height: 55px;
-}
-@font-face {
-font-family:'Sans'; /*Здесь Вы называете как хотите его использовать*/
-src: url('../fonts/OpenSans.ttf');
-}
-.backbutt
-{
-transform:scale(1,1);
-background-color:#163DA2;
-font-size:40px;
-text-align:center;
-width:350px;
-border-radius: 50px;
-background:linear-gradient(to bottom left,#163DA2,#83E3FC);
-border: 3px solid grey;
-height:10vh;
-line-height:60px;
-font-family:'Sans';
-font-size:50px
-}
-.backbutt:hover
-{
-background:linear-gradient(to bottom left,#83E3FC,#163DA2);
-border:3px solid white;
-transform:scale(1.16,1.21);
-}
-</style>
-<body>
-<header class="hdr">INNOVATION LAB : ATM</header>
-<h1 id='text' style="font-size:60px;text-align:center;position:fixed;top:25%;width:100%;font-family:'Sans'"></h1>
-<h1 style="font-size:70px;text-align:center;position:fixed;top:45%;width:100%;font-family:'Sans'"><b id='timer'>45</b></h1>
-<div style="width:100%;text-align:center;margin-top: 45%;">
-	<div class = "backbutt" id='back' style="bottom:15%;left:0;margin: auto;" ></div>
-</div>	
-<div id="footer" class="navbar navbar-fixed-bottom" style="background-color:#5B9BD5;height:5vh;border:3px solid rgb(118, 113, 113)"></div>
-<script>
-$("#back").html((readCookie('Lang') == 'rus') ? 'Назад':'Back');
-switch (readCookie("ATM_status")) {
-   case '200':
-        $("#text").html((readCookie('Lang') == 'rus') ? 'Пожалуйста, заберите ваши деньги. Сумма будет удержана устройством через':'Please take your money. It will be blocked by device after:');
-		$.idleTimer(46000);
-        $(document).bind('idle.idleTimer',function(){location.href='main.html'});
-		break
-      case '201':
-        $("#text").html((readCookie('Lang') == 'rus') ? 'Лимит превышен. Пожалуйста, попробуйте ввести меньшую сумму':'Limit is exceeded. Please try to enter smaller amount');
-		$.idleTimer(5000);
-        $(document).bind('idle.idleTimer',function(){location.href='getcash.html'});
-		break
-     case '202':
-        $("#text").html((readCookie('Lang') == 'rus') ? 'В банкомате закончились средства':'ATM has no money');
-		$.idleTimer(5000);
-		$(document).bind('idle.idleTimer',function(){location.href='cat.html'});
-		break
-     case '203':
-        $("#text").html((readCookie('Lang') == 'rus') ? 'Банкомат временно недоступен':'ATM is out of service');
-		$.idleTimer(5000);
-		$(document).bind('idle.idleTimer',function(){location.href='cat.html'});
-		break
-	case '204':
-        $("#text").html((readCookie('Lang') == 'rus') ? 'К сожалению,в базе нет клиента с таким ПИН-кодом':'Unfortunately there is no client with specified PIN');
-		$.idleTimer(5000);
-		$(document).bind('idle.idleTimer',function(){location.href='pin.html'});
-		break
-     case '226':
-        $("#text").html((readCookie('Lang') == 'rus') ? 'Карта заблокирована':'Card is blocked');
-		$.idleTimer(5000);
-		$(document).bind('idle.idleTimer',function(){location.href='pin.html'});
-		break
-     case '227':
-        $("#text").html((readCookie('Lang') == 'rus') ? 'Провести операцию невозможно':'It is impossible to perform an operation');
-		$.idleTimer(5000);
-		$(document).bind('idle.idleTimer',function(){location.href='cat.html'});
-		break
-
-   default:
-      $("#text").html("")
-      break
-}
-
-function readCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-    }
-    return null;
-};
-
-if(readCookie("ATM_status") != '200' ){$("#timer").hide()}
-
-function timer(){
- var obj=document.getElementById('timer');
- obj.innerHTML--;
- if(obj.innerHTML==0)
-	{
-		setTimeout(function(){},1000);
-	}
- else{setTimeout(timer,1000);}
-}
-setTimeout(timer,1000);
-$("#back").click(function(){location.href='main.html'})
-
-transliterate = (
-    function() {
-        var
-            rus = "ю ч ш щ х я ё ж а б д е ф г и дж к л м н о п р с т у в з ь".split(/ +/g),
-            eng = "yu ch sh sch kh ya yo zh a b d e f g i j k l m n o p r s t u v z '".split(/ +/g)
-        ;
-        return function(text, engToRus) {
-            var x;
-            for(x = 0; x < rus.length; x++) {
-                text = text.split(engToRus ? eng[x] : rus[x]).join(engToRus ? rus[x] : eng[x]);
-                text = text.split(engToRus ? eng[x].toUpperCase() : rus[x].toUpperCase()).join(engToRus ? rus[x].toUpperCase() : eng[x].toUpperCase());
-            }
-            return text;
-        }
-    }
-)();
-
-
-</script>
-</body>
-</html> -->

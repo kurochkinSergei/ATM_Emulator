@@ -78,7 +78,8 @@ html {
     position: absolute;
     font-size: 42px;
     line-height: 42px;
-    font-family: 'Rubik Mono One', sans-serif;
+    /* font-family: 'Rubik Mono One', sans-serif; */
+    font-family: 'Russo One', sans-serif;
     color: #f2f2f2;
     margin: 20px;
     text-align: left;

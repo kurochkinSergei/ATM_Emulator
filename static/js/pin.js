@@ -15,17 +15,6 @@ $(document).ready(() => {
         }
     }
 
-    // readCookie = (name) => {
-    //     var nameEQ = name + "=";
-    //     var ca = document.cookie.split(';');
-    //     for (var i = 0; i < ca.length; i++) {
-    //         var c = ca[i];
-    //         while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-    //         if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-    //     }
-    //     return null;
-    // };
-
     animeInput = () => {
         inputColor = anime({
             targets: '.js-pin-input',
@@ -45,13 +34,13 @@ $(document).ready(() => {
             targets: '.js-message-block',
             opacity: [
                 { value: '0' },
-                { value: '1' },
-                { value: '0' },
+                { value: '1' }
+                // { value: '0' },
             ],
-            easing: 'easeOutCubic',
+            easing: 'linear',
             direction: 'alternate',
-            duration: 3000,
-            delay: 500
+            duration: 3500,
+            loop: 2
         });
     }
 
@@ -75,12 +64,6 @@ $(document).ready(() => {
             storage.setItem('balance', data.AccountBalance)
             storage.setItem('cardNumber', data.CardNumber)
         }
-
-        // .cookie = "id=${data.IndivID}; path=/";
-        // document.cookie = "name=${data.CardParam1}; path=/";
-        // document.cookie = "pin=${data.CardPin}; path=/";
-        // document.cookie = "balance=${data.CardPin}; path=/";
-        console.log(storage)
     }
 
     enterTheATM = pin => {
@@ -128,14 +111,13 @@ $(document).ready(() => {
 
     $buttons.on('click',
         (e) => {
-            //animation still needs fix
-            hideMessageBlock()
-
             var $button = $(e.target),
                 $input = $('.js-pin-input', $pinForm)
 
             var buttonValue = $button.attr('data-button-value'),
                 inputValue = $input.val()
+
+            if (buttonValue != 'submit') hideMessageBlock()
             console.log(buttonValue)
 
             if (buttonValue == 'del') {
@@ -149,15 +131,4 @@ $(document).ready(() => {
 
         }
     );
-
-    // var isLanguageRus = readCookie('Lang') == 'rus'
-
-    // $("#pin").html((readCookie('Lang') == 'rus') ? 'Введите Ваш ПИН-код' : 'Enter your PIN');
-
-
-    //Установка таймера бездействия пользователя
-    // $.idleTimer(120000);
-    // $(document).bind('idle.idleTimer', function() {
-    //     location.href = 'index.html'
-    // });
 })
