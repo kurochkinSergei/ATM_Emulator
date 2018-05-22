@@ -21,7 +21,8 @@
 
     <!-- Скрипты страницы -->
     <!-- <script type="text/javascript" src="./static/js/out_of_serv.js" async="true"></script> -->
-    <!-- <script type="text/javascript" src="./static/js/home.js" async="true"></script> -->
+    <script type="text/javascript" src="./static/js/insert_customer_data.js" async="true"></script>
+    <script type="text/javascript" src="./static/js/get_cash.js" async="true"></script>
 </head>
 
 <body class="main-background">
@@ -31,14 +32,14 @@
     <img class="watermark-image" src="./static/img/funds.svg">
 
     <div class="content content_huge">
-        <div class="side-block">
+        <div class="side-block js-customer-info">
             <div class="info">
-                <div class="info-title js-translate js-balance">Баланс:</div>
+                <div class="info-title">Баланс:</div>
                 <div class="info-value js-account-balance">55 000 руб.</div>
             </div>
 
             <div class="info">
-                <div class="info-title js-translate js-card-number">Номер карты:</div>
+                <div class="info-title">Номер карты:</div>
                 <div class="info-value js-card-number"> 12** **** 1234</div>
             </div>
         </div>
@@ -46,10 +47,8 @@
         <div class="categories-block js-cash-wrapper">
             <div class="categories-row">
                 <input type="text" placeholder="Выберите сумму" class="cash-input js-cash-input" />
-                <div class="cash-controls js-cash-controls hidden">
-                    <div class="js-minus">&ndash;</div>
-                    <div class="js-plus">+</div>
-                </div>
+                <div data-delta="-100" class="cash-control cash-control_left js-cash-control hidden">&ndash;</div>
+                <div data-delta="100" class="cash-control cash-control_right js-cash-control hidden">+</div>
             </div>
             <div class="categories-row">
                 <div data-cash-amount="500" class="category button js-cash-button">500</div>
@@ -63,8 +62,8 @@
                 <div data-cash-amount="7000" class="category button js-cash-button">7000</div>
                 <div data-cash-amount="10000" class="category button js-cash-button">10000</div>
             </div>
-            <div class="category-attractive button button_red hidden js-get-quick-cash" data-cash-amount="500">
-                <span class="quick-cash_amount js-cash-amount">500р.</span>
+            <div class="category-attractive button button_red hidden js-get-cash" data-cash-amount="">
+                <span class="quick-cash_amount js-cash-amount"></span>
                 <span class="js-translate js-quick-cash">Снять</span>
                 <div class="category-attractive_arrow"></div>
             </div>

@@ -22,6 +22,7 @@
 
     <!-- Скрипты страницы -->
     <script type="text/javascript" src="./static/js/home.js" async="true"></script>
+    <script type="text/javascript" src="./static/js/insert_customer_data.js" async="true"></script>
 </head>
 
 <body class="main-background">
@@ -31,7 +32,7 @@
     <img class="watermark-image" src="./static/img/atm.svg">
 
     <div class="content">
-        <div class="side-block">
+        <div class="side-block js-customer-info">
             <div class="info">
                 <div class="info-title js-translate js-greeting">Здравствуйте,</div>
                 <div class="info-value js-cust-name">Максим Викторович</div>
@@ -43,7 +44,7 @@
             </div>
 
             <div class="info">
-                <div class="info-title js-translate js-card-number">Номер карты:</div>
+                <div class="info-title js-translate">Номер карты:</div>
                 <div class="info-value js-card-number"> 12** **** 1234</div>
             </div>
         </div>
@@ -61,7 +62,7 @@
                 <div class="category button js-translate js-settings">Управление счетом</div>
                 <div class="category button button_dark js-translate js-other">Другое</div>
             </div>
-            <div class="category-attractive categories-row_separated-60 button button_red js-get-quick-cash" data-cash-amount="500">
+            <div class="category-attractive categories-row_separated-60 button button_red js-get-cash" data-cash-amount="500">
                 <span class="quick-cash_amount js-cash-amount">500р.
                 </span>
                 <span class="js-translate js-quick-cash">Быстрое снятие</span>

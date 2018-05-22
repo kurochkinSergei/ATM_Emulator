@@ -15,16 +15,16 @@ $(document).ready(() => {
         }
     }
 
-    readCookie = (name) => {
-        var nameEQ = name + "=";
-        var ca = document.cookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-        }
-        return null;
-    };
+    // readCookie = (name) => {
+    //     var nameEQ = name + "=";
+    //     var ca = document.cookie.split(';');
+    //     for (var i = 0; i < ca.length; i++) {
+    //         var c = ca[i];
+    //         while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+    //         if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    //     }
+    //     return null;
+    // };
 
     animeInput = () => {
         inputColor = anime({
@@ -72,8 +72,8 @@ $(document).ready(() => {
             storage.setItem('id', data.IndivID)
             storage.setItem('name', data.CardParam1)
             storage.setItem('pin', data.CardPin)
-            storage.setItem('balance', data.balance)
-
+            storage.setItem('balance', data.AccountBalance)
+            storage.setItem('cardNumber', data.CardNumber)
         }
 
         // .cookie = "id=${data.IndivID}; path=/";
@@ -98,13 +98,15 @@ $(document).ready(() => {
 
         fetch('http:/10.20.1.35:6001/get_card', options).then(function(response) {
             var contentType = response.headers.get("content-type");
+
             if (contentType && contentType.includes("application/json")) {
                 return response.json();
             }
-            $.getJSON('./data_sample.json', function(data) {
-                writeDataToLocalStorage(data[0])
-                console.log(data)
-            })
+            // for testing
+            // $.getJSON('./data_sample.json', function(data) {
+            //     writeDataToLocalStorage(data[0])
+            //     console.log(data)
+            // })
 
             throw new TypeError("джисон не пришел-(");
         }).then(function(json) {
@@ -115,7 +117,7 @@ $(document).ready(() => {
                     animeMessageBlock()
                 } else {
                     writeDataToLocalStorage(json)
-                        // location.href = "cat.html"
+                    location.href = "home.html"
                 }
             }
             console.log(json)
@@ -148,9 +150,9 @@ $(document).ready(() => {
         }
     );
 
-    var isLanguageRus = readCookie('Lang') == 'rus'
+    // var isLanguageRus = readCookie('Lang') == 'rus'
 
-    $("#pin").html((readCookie('Lang') == 'rus') ? 'Введите Ваш ПИН-код' : 'Enter your PIN');
+    // $("#pin").html((readCookie('Lang') == 'rus') ? 'Введите Ваш ПИН-код' : 'Enter your PIN');
 
 
     //Установка таймера бездействия пользователя
