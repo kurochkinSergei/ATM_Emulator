@@ -7,8 +7,10 @@ $(document).ready(() => {
     var headlines = document.querySelectorAll('.js-headline'),
         words = document.querySelectorAll('.js-word')
 
-    var totalDuration = (TIME_BETWEEN_HEADLINES + TIME_HEADLINE_FADING) * (headlines.length - 1) +
-        (TIME_BETWEEN_WORDS + TIME_TEXT_SHOWN) * (words.length - headlines.length)
+    // var totalDuration = (TIME_BETWEEN_HEADLINES + TIME_HEADLINE_FADING) * (headlines.length) +
+    //     (TIME_BETWEEN_WORDS + TIME_TEXT_SHOWN) * (words.length - headlines.length)
+    var totalDuration = (TIME_BETWEEN_HEADLINES + TIME_HEADLINE_FADING) * (headlines.length) +
+        (TIME_BETWEEN_WORDS) * (words.length)
 
     var headlinesTimeline = anime.timeline()
 

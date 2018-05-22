@@ -103,7 +103,6 @@ $(document).ready(() => {
                     location.href = "home.html"
                 }
             }
-            console.log(json)
         }).catch(function(e) {
             console.log("Error getting card_data", e)
         });

@@ -20,12 +20,12 @@
     <!-- Скрипты вендоров -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./static/js/vendor/anime.min.js" async="true"></script>
-    <!-- <script type="text/javascript" src="./static/js/out_of_serv.js" async="true"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-idletimer/1.0.0/idle-timer.min.js"></script>
 
     <!-- Скрипты страницы -->
-    <script type="text/javascript" src="./static/js/home.js" async="true"></script>
     <script type="text/javascript" src="./static/js/insert_customer_data.js" async="true"></script>
     <script type="text/javascript" src="./static/js/get_cash.js" async="true"></script>
+    <script type="text/javascript" src="./static/js/idle_timer.js" async="true"></script>
 </head>
 
 <body class="main-background">
@@ -38,7 +38,7 @@
         <div class="side-block js-customer-info">
             <div class="info">
                 <div class="info-title js-translate js-greeting">Здравствуйте,</div>
-                <div class="info-value js-cust-name">Максим Викторович</div>
+                <div class="info-value js-cust-name">Иван Иванович</div>
             </div>
 
             <div class="info">
@@ -77,114 +77,3 @@
 </body>
 
 </html>
-
-
-<!-- 
-<! html>
-<html>
-
-<head>
-</head>
-
-<body>
-    <!-- <header class="hdr">INNOVATION LAB : ATM</header>
-    <h1 id='name' style="font-size:60px;text-align:center;position:fixed;top:15%;width:100%;font-family:'Sans'"></h1>
-    <h1 id='cat' style="font-size:60px;text-align:center;position:fixed;top:25%;width: 100%;font-family:'Sans'"></h1>
-    <a href='getcash.html'>
-        <h2 class="catbutt" id='getcash' style="bottom:30%;right:0;border-radius: 50px 0px 0px 50px;border-right: none;"></h2>
-    </a>
-    <a href='currlimit.html'>
-        <h2 class="catbutt" id='currlimit' style="bottom:45%;right:0;border-radius: 50px 0px 0px 50px;border-right: none;"></h2>
-    </a>
-    <a href='pin.html'>
-        <h2 class="catbutt" id='back' style="bottom:15%;right:0;border-radius: 50px 0px 0px 50px;border-right: none;"></h2>
-    </a>
-    <a href='putsum.html'>
-        <h2 class="catbutt" id='putcash' style="bottom:30%;left:0;border-radius: 0px 50px 50px 0px;border-left:none;"></h2>
-    </a>
-    <a href='pay.html'>
-        <h2 class="catbutt" id='payment' style="bottom:45%;left:0;border-radius: 0px 50px 50px 0px;border-left:none;"></h2>
-    </a>
-    <a href='index.html'>
-        <h2 class="catbutt" id='cancel' style="bottom:15%;left:0;border-radius: 0px 50px 50px 0px;border-left:none;"></h2>
-    </a>
-    <div id="footer" class="navbar navbar-fixed-bottom" style="background-color:#5B9BD5;height:5vh;border:3px solid rgb(118, 113, 113)"></div>
-    <script>
-        $("#cat").html((readCookie('Lang') == 'rus') ? 'Выберите категорию:' : 'Choose category');
-        $("#getcash").html((readCookie('Lang') == 'rus') ? 'Снять наличные' : 'Cash withdrawal');
-        $("#currlimit").html((readCookie('Lang') == 'rus') ? 'Запрос остатка' : 'Balance inquire');
-        $("#back").html((readCookie('Lang') == 'rus') ? 'Назад' : 'Back');
-        $("#payment").html((readCookie('Lang') == 'rus') ? 'Платежи и переводы' : 'Loan repayment');
-        $("#putcash").html((readCookie('Lang') == 'rus') ? 'Внести наличные' : 'Cash deposit');
-        $("#cancel").html((readCookie('Lang') == 'rus') ? 'Отмена' : 'Cancel');
-
-        function req() {
-            $.ajax({
-                    url: 'http://10.20.1.21:5000/atm_status',
-                })
-                .done(function(data) {
-                    console.log("Ajax was succsessfully sent");
-                    console.log(JSON.parse(data).status);
-                    if (JSON.parse(data).status == false) {
-                        location = "outofserv.html"
-                    }
-                })
-                .fail(function() {
-                    console.log("Ajax failed to fetch data")
-                })
-        }
-
-        setInterval(req, 3000);
-
-        function readCookie(name) {
-            var nameEQ = name + "=";
-            var ca = document.cookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-            }
-            return null;
-        };
-        transliterate = (
-            function() {
-                var
-                    rus = "ю ч ш щ х я ё ж а б д е ф г и дж к л м н о п р с т у в з ь".split(/ +/g),
-                    eng = "yu ch sh sch kh ya yo zh a b d e f g i j k l m n o p r s t u v z '".split(/ +/g);
-                return function(text, engToRus) {
-                    var x;
-                    for (x = 0; x < rus.length; x++) {
-                        text = text.split(engToRus ? eng[x] : rus[x]).join(engToRus ? rus[x] : eng[x]);
-                        text = text.split(engToRus ? eng[x].toUpperCase() : rus[x].toUpperCase()).join(engToRus ? rus[x].toUpperCase() : eng[x].toUpperCase());
-                    }
-                    return text;
-                }
-            }
-        )();
-
-        //var text=readCookie("Text");
-        //var pin=readCookie("Pin");
-        //var textrus = transliterate(transliterate(text), true);
-        //$('#name').text('Здравствуйте, '+textrus+'!');
-        $('#name').html((readCookie('lname') == 'null') ? "" : (readCookie('mname') == '') ? readCookie('fname') + " " + readCookie('lname') + "," : readCookie('fname') + " " + readCookie('mname') + ",");
-        $.idleTimer(120000);
-        $(document).bind('idle.idleTimer', function() {
-            location.href = 'index.html'
-        });
-
-        function func(jsonData2) {
-            var URLvar;
-            var text;
-            var out = jsonData2.Envelope.Body.EventResponse.Body.Data;
-            URLvar = out[0].String.Val;
-            Text = out[1].String.Val;
-            document.cookie = "Text=" + Text + "; path=/";
-            document.cookie = "Pin=" + $('input.keypad').val() + "; path=/";
-            location.href = URLvar;
-
-
-        };
-    </script> -->
-<!-- </body> -->
-
-<!-- </html> -->
