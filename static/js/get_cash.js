@@ -39,7 +39,7 @@ $(document).ready(() => {
             newAmount = amount + delta
             $input.val(newAmount)
             $getCashButton.attr('data-cash-amount', newAmount)
-            $getCashButtonAmount.html(newAmount + ' руб.')
+            $getCashButtonAmount.html(newAmount + ' &#x20bd;')
         }
     }
 
@@ -80,7 +80,7 @@ $(document).ready(() => {
         $input.val(cashAmount)
         $cashControls.removeClass('hidden')
         $getCashButton.attr('data-cash-amount', cashAmount).removeClass('hidden')
-        $getCashButtonAmount.html(cashAmount + ' руб.')
+        $getCashButtonAmount.html(cashAmount + ' &#x20bd;')
     })
 
     $getCashButton.on('click', getCash)

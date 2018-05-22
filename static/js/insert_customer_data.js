@@ -20,7 +20,7 @@ $(document).ready(() => {
         cardNumber = storage.getItem('cardNumber').slice(0, 2) + '** **** ' + storage.getItem('cardNumber').slice(-4)
     if (storageAvailable('localStorage')) {
         $customerName.html(storage.getItem('name'))
-        $customerBalance.html(storage.getItem('balance') + ' руб.')
+        $customerBalance.html(storage.getItem('balance') + ' &#x20bd;')
         $customerCardNumber.html(cardNumber)
     }
 })

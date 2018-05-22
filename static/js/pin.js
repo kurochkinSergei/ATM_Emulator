@@ -25,7 +25,7 @@ $(document).ready(() => {
             ],
             easing: 'linear',
             direction: 'alternate',
-            duration: 1500
+            duration: 1000
         });
     }
 
@@ -117,7 +117,6 @@ $(document).ready(() => {
                 inputValue = $input.val()
 
             if (buttonValue != 'submit') hideMessageBlock()
-            console.log(buttonValue)
 
             if (buttonValue == 'del') {
                 $input.val(inputValue.slice(0, -1))

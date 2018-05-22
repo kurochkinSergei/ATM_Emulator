@@ -24,6 +24,7 @@
     <!-- Скрипты страницы -->
     <script type="text/javascript" src="./static/js/pin.js" async="true"></script>
     <script type="text/javascript" src="./static/js/idle_timer.js" async="true"></script>
+    <script type="text/javascript" src="./static/js/translate.js" async="true"></script>
 </head>
 
 <body class="main-background">
@@ -34,8 +35,8 @@
     <div class="center-content">
         <form id="pin-form" class="js-pin-form">
             <div>
-                <div class="message-block js-message-block">Карта заблокирована</div>
-                <input type="password" placeholder="Пин код" class="pin-input js-pin-input" id="num" />
+                <div data-eng="Card is blocked" class="message-block js-message-block js-translate">Карта заблокирована</div>
+                <input type="password" data-eng="PIN code" placeholder="ПИН код" class="pin-input js-pin-input js-translate-placeholder" id="num" />
             </div>
 
             <table id="keypad" align="center">

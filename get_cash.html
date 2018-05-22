@@ -25,30 +25,31 @@
     <script type="text/javascript" src="./static/js/insert_customer_data.js" async="true"></script>
     <script type="text/javascript" src="./static/js/get_cash.js" async="true"></script>
     <script type="text/javascript" src="./static/js/idle_timer.js" async="true"></script>
+    <script type="text/javascript" src="./static/js/translate.js" async="true"></script>
 </head>
 
 <body class="main-background">
     <a href="#" class="atm-name">ATM-F</a>
-    <a href="home.html" class="back-block back-block_home">Домой</a>
+    <a data-eng="Home" href="home.html" class="back-block back-block_home js-translate">Домой</a>
 
     <img class="watermark-image" src="./static/img/funds.svg">
 
     <div class="content content_huge">
         <div class="side-block js-customer-info">
             <div class="info">
-                <div class="info-title">Баланс:</div>
-                <div class="info-value js-account-balance">55 000 руб.</div>
+                <div data-eng="Balance" class="info-title js-translate">Баланс:</div>
+                <div class="info-value js-account-balance">55 000 &#x20bd;</div>
             </div>
 
             <div class="info">
-                <div class="info-title">Номер карты:</div>
+                <div data-eng="Card number" class="info-title js-translate">Номер карты:</div>
                 <div class="info-value js-card-number"> 12** **** 1234</div>
             </div>
         </div>
 
         <div class="categories-block js-cash-wrapper">
             <div class="categories-row">
-                <input type="text" placeholder="Выберите сумму" class="cash-input js-cash-input" />
+                <input data-eng="Enter amount" type="text" placeholder="Выберите сумму" class="cash-input js-cash-input js-translate-placeholder" />
                 <div data-delta="-100" class="cash-control cash-control_left js-cash-control hidden">&ndash;</div>
                 <div data-delta="100" class="cash-control cash-control_right js-cash-control hidden">+</div>
             </div>
@@ -66,7 +67,7 @@
             </div>
             <div class="category-attractive button button_red hidden js-get-cash" data-cash-amount="">
                 <span class="quick-cash_amount js-cash-amount"></span>
-                <span class="js-translate js-quick-cash">Снять</span>
+                <span data-eng="Withdraw" class="js-translate js-quick-cash">Снять</span>
                 <div class="category-attractive_arrow"></div>
             </div>
         </div>
